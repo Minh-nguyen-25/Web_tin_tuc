@@ -1,0 +1,19 @@
+name: Auto Deploy Web Tin Tuc
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-to-server:
+    runs-on: self-hosted
+    steps:
+      - name: Tải code mới nhất từ GitHub về Server
+        uses: actions/checkout@v4
+
+      - name: Cập nhật Web tự động
+        run: |
+          echo "Đang triển khai code đè vào máy ảo..."
+          rsync -av --delete ./webtintuc247/ /var/www/html/webtintuc247/
+          echo "Đã triển khai xong! Docker tự nhận code mới!"
