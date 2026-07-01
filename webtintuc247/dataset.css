@@ -1,0 +1,180 @@
+/* ================================
+   Milo Widget Styles (Scoped CSS)
+   Không ảnh hưởng đến code khác
+================================ */
+
+.milo-widget {
+    width: 100%;
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all .3s ease;
+}
+
+.milo-widget:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.milo-widget-header {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.milo-widget-title {
+    font-size: 24px;
+    color: #2d3436;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.milo-widget-subtitle {
+    font-size: 14px;
+    color: #636e72;
+}
+
+.milo-widget-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.milo-widget-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.milo-widget-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #b2bec3;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color .3s ease;
+    box-sizing: border-box;
+}
+
+.milo-widget-input:focus {
+    border-color: #0984e3;
+}
+
+.milo-widget-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #b2bec3;
+    background: #fff;
+    cursor: pointer;
+}
+
+.milo-widget-button {
+    padding: 12px;
+    background: #0984e3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+.milo-widget-button:hover {
+    background: #0652dd;
+}
+
+.milo-widget-button:active {
+    transform: scale(0.98);
+}
+
+.milo-widget-card {
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border-left: 4px solid #0984e3;
+}
+
+.milo-widget-text {
+    font-size: 15px;
+    color: #2f3640;
+    line-height: 1.6;
+}
+
+.milo-widget-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
+
+.milo-widget-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #00b894;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.milo-widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.milo-widget-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ececec;
+}
+
+.milo-widget-list li:last-child {
+    border-bottom: none;
+}
+
+.milo-widget-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.milo-widget-alert {
+    padding: 12px;
+    background: #fff4e5;
+    border: 1px solid #ffd59e;
+    color: #b7791f;
+    border-radius: 6px;
+}
+
+.milo-widget-success {
+    background: #eafaf1;
+    border: 1px solid #7bed9f;
+    color: #218c5b;
+}
+
+.milo-widget-error {
+    background: #ffecec;
+    border: 1px solid #ff7675;
+    color: #c0392b;
+}
+
+.milo-widget-hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .milo-widget {
+        padding: 15px;
+    }
+
+    .milo-widget-title {
+        font-size: 20px;
+    }
+
+    .milo-widget-button {
+        width: 100%;
+    }
+}
