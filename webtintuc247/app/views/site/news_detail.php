@@ -54,3 +54,4 @@
     const nId = <?= $newsId ?? 0 ?>;
 </script>
 <script src="<?= URLROOT ?>assets/js/site/news_detail.js"></script>
+<!-- 5 ae sieu nhan -->

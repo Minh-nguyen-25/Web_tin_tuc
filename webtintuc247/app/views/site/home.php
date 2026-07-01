@@ -23,3 +23,5 @@
 
 <script>const BASE_URL = '<?= URLROOT ?>';</script>
 <script src="<?= URLROOT ?>assets/js/site/home.js"></script>
+
+<!-- thaoxinh hihi -->
