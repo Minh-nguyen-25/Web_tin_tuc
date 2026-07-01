@@ -39,7 +39,8 @@ header.hide-top {
 .logo-top {
   font-size: 24px;
   font-weight: 800;
-  color: #065311;
+  /* color: #065311; */
+  color: #e7e409;
   text-decoration: none;
   text-transform: uppercase;
   display: flex;
