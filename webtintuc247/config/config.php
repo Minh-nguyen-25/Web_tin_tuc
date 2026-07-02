@@ -18,3 +18,4 @@ define('BASE_URL', $protocol . $host . $baseDir);
 define('APPROOT', dirname(dirname(__FILE__)) . '/app');
 define('URLROOT', BASE_URL);
 define('SITENAME', 'WebTinTuc247');
+#Minh múp  ơi
