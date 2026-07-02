@@ -39,7 +39,7 @@ async function fetchNewsDetail() {
 }
 
 function renderNewsBox() {
-    const { news, likes, is_liked, is_saved, comments } = currentData;
+    const { news, likes, is_liked, is_saved, comments, related_news = [] } = currentData;
 
     let navHtml = '';
     if (news.parent_name) navHtml += `<a href="${BASE_URL}categories/${news.parent_id}" style="color:#333; text-decoration:none;">${news.parent_name}</a> <span style="margin: 0 5px;">></span> `;
@@ -109,6 +109,7 @@ function renderNewsBox() {
         }
     }
 
+    renderRelatedNews(related_news);
     renderCommentsList(comments);
 
     const loader = document.getElementById('loader');
@@ -116,6 +117,38 @@ function renderNewsBox() {
     
     const newsCont = document.getElementById('news-container');
     if (newsCont) newsCont.style.display = 'block';
+}
+
+function renderRelatedNews(items) {
+    const container = document.getElementById('related-news');
+    if (!container) return;
+
+    if (!Array.isArray(items) || items.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+
+    const cards = items.map(item => {
+        const img = item.hinhanh ? `${BASE_URL}assets/images/news/${item.hinhanh}` : `${BASE_URL}assets/images/news/default.jpg`;
+        return `
+            <a href="${BASE_URL}news/${item.id}" style="display:block; text-decoration:none; color:inherit; background:#fff; border:1px solid #eee; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                <img src="${img}" alt="${item.tieude}" style="width:100%; height:140px; object-fit:cover;">
+                <div style="padding:12px;">
+                    <h4 style="font-size:15px; margin:0 0 8px; line-height:1.4; color:#222;">${item.tieude}</h4>
+                    <p style="margin:0; color:#666; font-size:13px; line-height:1.5;">${item.tomtat || 'Xem ngay bài viết liên quan này.'}</p>
+                </div>
+            </a>
+        `;
+    }).join('');
+
+    container.innerHTML = `
+        <div style="margin-top: 35px; padding-top: 20px; border-top: 1px solid #eee;">
+            <h3 style="margin-bottom: 15px; font-size: 20px; color: #222;">Tin liên quan</h3>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                ${cards}
+            </div>
+        </div>
+    `;
 }
 
 function renderCommentsList(comments) {

@@ -29,6 +29,8 @@
 
         <div class="main-content" id="news-content"></div>
 
+        <div id="related-news" style="margin-top: 40px;"></div>
+
         <div class="comment-section" style="margin-top: 50px; border-top: 2px solid #333; padding-top: 30px;">
             <h3 style="margin-bottom: 20px;"><i class="far fa-comments"></i> Bình luận</h3>
             <div id="comment-box-area" style="margin-bottom: 30px;"></div>

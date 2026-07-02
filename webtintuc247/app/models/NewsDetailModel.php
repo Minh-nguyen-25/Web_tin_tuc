@@ -57,6 +57,35 @@ class NewsDetailModel
         return $row !== false;
     }
 
+    public function getRelatedNews(int $categoryId, int $currentNewsId, int $limit = 4): array
+    {
+        if ($categoryId <= 0) {
+            return [];
+        }
+
+        $rows = $this->db->fetchAll(
+            "SELECT id, tieude, tomtat, hinhanh, ngaydang, view_count
+             FROM tbl_news
+             WHERE trangthai = 'da_dang' AND category_id = ? AND id != ?
+             ORDER BY ngaydang DESC, view_count DESC
+             LIMIT ?",
+            [$categoryId, $currentNewsId, $limit]
+        );
+
+        if (!empty($rows)) {
+            return $rows;
+        }
+
+        return $this->db->fetchAll(
+            "SELECT id, tieude, tomtat, hinhanh, ngaydang, view_count
+             FROM tbl_news
+             WHERE trangthai = 'da_dang' AND id != ?
+             ORDER BY ngaydang DESC, view_count DESC
+             LIMIT ?",
+            [$currentNewsId, $limit]
+        );
+    }
+
     public function getApprovedComments(int $newsId): array
     {
         return $this->db->fetchAll(

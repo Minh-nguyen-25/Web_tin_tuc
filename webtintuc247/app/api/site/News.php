@@ -28,14 +28,16 @@ class News extends ApiController
         $is_liked = $userId > 0 ? $newsModel->isLikedByUser($userId, $newsId) : false;
         $is_saved = $userId > 0 ? $newsModel->isSavedByUser($userId, $newsId) : false;
         $comments = $newsModel->getApprovedComments($newsId);
+        $related  = $newsModel->getRelatedNews((int)($news->category_id ?? 0), $newsId);
 
         $this->json('success', [
-            'news'     => $news,
-            'likes'    => $likes,
-            'is_liked' => $is_liked,
-            'is_saved' => $is_saved,
-            'comments' => $comments,
-            'session'  => ['logged_in' => $userId > 0, 'user_id' => $userId]
+            'news'         => $news,
+            'likes'        => $likes,
+            'is_liked'     => $is_liked,
+            'is_saved'     => $is_saved,
+            'comments'     => $comments,
+            'related_news' => $related,
+            'session'      => ['logged_in' => $userId > 0, 'user_id' => $userId]
         ]);
     }
 
